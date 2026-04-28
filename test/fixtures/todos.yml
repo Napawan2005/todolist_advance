@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  title: MyString
+  description: MyText
+  due_date: 2026-04-28
+  status: 1
+  google_event_id: MyString
+  reminder_sent: false
+
+two:
+  user: two
+  title: MyString
+  description: MyText
+  due_date: 2026-04-28
+  status: 1
+  google_event_id: MyString
+  reminder_sent: false

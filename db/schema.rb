@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_28_140830) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_28_142229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "todos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.date "due_date"
+    t.string "google_event_id"
+    t.boolean "reminder_sent"
+    t.integer "status"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_todos_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "avatar_url"
@@ -26,4 +39,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_28_140830) do
     t.index ["email"], name: "index_users_on_email"
     t.index ["keycloak_uid"], name: "index_users_on_keycloak_uid"
   end
+
+  add_foreign_key "todos", "users"
 end
